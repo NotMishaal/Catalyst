@@ -6,7 +6,7 @@ function NavBar() {
 
   return (
     <div className="container-fluid">
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img src="public\catalyst.svg" alt="Bootstrap" height={69} />
@@ -50,10 +50,10 @@ function NavBar() {
               ) : (
                 // user isn't logged in
                 <>
-                  <a className="btn btn-secondary" href="#" role="button">
+                  <a className="btn btn-secondary m-2" href="#" role="button">
                     Log In
                   </a>
-                  <a className="btn btn-primary" href="#" role="button">
+                  <a className="btn btn-primary m-2" href="#" role="button">
                     Sign Up
                   </a>
                 </>

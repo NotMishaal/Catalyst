@@ -4,9 +4,9 @@ function Home() {
   return (
     <div className="Home">
       <NavBar />
-      <div className="container-fluid ml-5 ">
-        <div className="row align-items-center vh-100 vw-100">
-          <div className="col mx-5">
+      <div className="container-fluid">
+        <div className="row align-items-center min-vh-100 min-vw-100">
+          <div className="col-lg-6 col-md-12">
             <h1 className="fw-bold display-1">
               Welcome to Catalyst, your all-in-one platform for startup success.
             </h1>
@@ -16,27 +16,34 @@ function Home() {
               of services to help startups at every stage of their journey, from
               ideation to growth.
             </p>
-            <button type="button" className="btn btn-primary btn-lg py-2 px-5">
+            <button
+              type="button"
+              className="btn btn-primary btn-lg py-2 px-5 my-5"
+            >
               Start Now
             </button>
           </div>
-          <div className="col">
+          <div className="col-lg-6 col-md-12">
             <img
               src="../../public/clipart/sheet.svg"
               className="img-fluid w-75"
             />
           </div>
         </div>
-        <div className="row row-cols-1 bg-black text-white align-items-center vh-100 vw-100">
-          <div className="col mt-5">
+        <div className="row bg-black text-white align-items-center min-vh-100 min-vw-100">
+          <div className="col-lg-12">
             <h1 className="fw-bold display-3 text-center">
               Join Catalyst Today
             </h1>
           </div>
-          <div className="row align-items-center">
-            <div className="col col1">
+          <div className="row align-items-start">
+            <div className="col-lg-6 col-md-12">
               <div className="row">
-                <div className="col col1-row1 p-5 p-5">
+                <div className="col p-5 ">
+                  <img
+                    src="../../public/icons/crown.svg"
+                    style={{ filter: "invert(100%)", width: "75px" }}
+                  />
                   <h1>Get started with your startup journey</h1>
                   <p>
                     Our platform connects startups with investors, making it
@@ -48,8 +55,12 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className="row">
-                <div className="col col1-row2 p-5">
+              <div className="row ">
+                <div className="col p-5 ">
+                  <img
+                    src="../../public/icons/chart.svg"
+                    style={{ filter: "invert(100%)", width: "75px" }}
+                  />
                   <h1>Taking it to the next level</h1>
                   <p>
                     Whether you're in the seed stage, early stage, or growth
@@ -62,12 +73,13 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col col2">
+            <div className="col-lg-6 col-md-12">
               <div className="row">
-                <div className="col col2-row1"></div>
-              </div>
-              <div className="row">
-                <div className="col col2-row2 p-5">
+                <div className="col p-5">
+                  <img
+                    src="../../public/icons/coin.svg"
+                    style={{ filter: "invert(100%)", width: "75px" }}
+                  />
                   <h1>Affordable and accessible</h1>
                   <p>
                     Our platform is designed to be accessible and affordable,
@@ -76,9 +88,6 @@ function Home() {
                     access the resources and support they need to succeed.
                   </p>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col col2-row3"></div>
               </div>
             </div>
           </div>

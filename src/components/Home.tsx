@@ -1,4 +1,6 @@
 import NavBar from "./Nav";
+import HeaderSection from "./home/header";
+import PreviewSection from "./home/preview";
 
 function Home() {
   return (
@@ -6,23 +8,7 @@ function Home() {
       <NavBar />
       <div className="container-fluid">
         <div className="row align-items-center min-vh-100 min-vw-100">
-          <div className="col-lg-6 col-md-12">
-            <h1 className="fw-bold display-1">
-              Welcome to Catalyst, your all-in-one platform for startup success.
-            </h1>
-            <p className="fw-medium my-5">
-              We believe that every startup has the potential to succeed with
-              the right resources and support. That's why we offer a wide range
-              of services to help startups at every stage of their journey, from
-              ideation to growth.
-            </p>
-            <button
-              type="button"
-              className="btn btn-primary btn-lg py-2 px-5 my-5"
-            >
-              Start Now
-            </button>
-          </div>
+          <HeaderSection />
           <div className="col-lg-6 col-md-12">
             <img
               src="../../public/clipart/sheet.svg"
@@ -30,66 +16,11 @@ function Home() {
             />
           </div>
         </div>
-        <div className="row bg-black text-white align-items-center min-vh-100 min-vw-100">
-          <div className="col-lg-12">
-            <h1 className="fw-bold display-3 text-center">
-              Join Catalyst Today
-            </h1>
-          </div>
-          <div className="row align-items-start">
-            <div className="col-lg-6 col-md-12">
-              <div className="row">
-                <div className="col p-5 ">
-                  <img
-                    src="../../public/icons/crown.svg"
-                    style={{ filter: "invert(100%)", width: "75px" }}
-                  />
-                  <h1>Get started with your startup journey</h1>
-                  <p>
-                    Our platform connects startups with investors, making it
-                    easier for them to secure the funding. They need to bring
-                    their ideas to life. But we don't stop there. We offer a
-                    range of other services to help startups grow and succeed,
-                    including data analytics and other tools to help them make
-                    informed decisions about their business
-                  </p>
-                </div>
-              </div>
-              <div className="row ">
-                <div className="col p-5 ">
-                  <img
-                    src="../../public/icons/chart.svg"
-                    style={{ filter: "invert(100%)", width: "75px" }}
-                  />
-                  <h1>Taking it to the next level</h1>
-                  <p>
-                    Whether you're in the seed stage, early stage, or growth
-                    stage, Catalyst has the resources and support you need to
-                    take your startup to the next level. Our team of experts is
-                    here to help you every step of the way, providing
-                    personalized support and guidance to help you achieve your
-                    goals.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 col-md-12">
-              <div className="row">
-                <div className="col p-5">
-                  <img
-                    src="../../public/icons/coin.svg"
-                    style={{ filter: "invert(100%)", width: "75px" }}
-                  />
-                  <h1>Affordable and accessible</h1>
-                  <p>
-                    Our platform is designed to be accessible and affordable,
-                    which is why we offer our basic application for free. We
-                    believe that startups shouldn't have to spend a fortune to
-                    access the resources and support they need to succeed.
-                  </p>
-                </div>
-              </div>
-            </div>
+        <PreviewSection />
+        <div className="row  min-vh-100 min-vw-100">
+          <h1 className="fw-bold display-1">Featured Businesses</h1>
+          <div className="row">
+            <div className="card"></div>
           </div>
         </div>
       </div>

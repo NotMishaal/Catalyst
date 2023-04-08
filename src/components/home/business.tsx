@@ -1,34 +1,57 @@
 import React from "react";
 
 type CardProps = {
-  imageUrl: string;
   title: string;
   description: string;
-  linkUrl: string;
+  link: string;
+  imgSrc: string;
+  imgAlt: string;
 };
 
-const Card: React.FC<CardProps> = ({
-  imageUrl,
-  title,
-  description,
-  linkUrl,
-}) => {
+const Card = ({ title, description, link, imgSrc, imgAlt }: CardProps) => {
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <img src={imageUrl} className="card-img-top" alt="Card image cap" />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
-        <a href={linkUrl} className="btn btn-primary">
-          More Info
-        </a>
+    <div className="col-md-4">
+      <div className="card">
+        <img src={imgSrc} className="card-img-top" alt={imgAlt} />
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{description}</p>
+          <a href={link} className="btn btn-primary">
+            Card Link
+          </a>
+        </div>
       </div>
     </div>
   );
 };
 
 const Businesses: React.FC = () => {
-  return <Card imageUrl={""} title={""} description={""} linkUrl={""} />;
+  return (
+    <div className="row min-vh-100 min-vw-100 align-items-center">
+      <h1 className="fw-bold display-2">Featured Businesses</h1>
+      <Card
+        title="Card Title 1"
+        description="This is the description for Card 1."
+        link="#"
+        imgSrc="https://picsum.photos/200/150"
+        imgAlt="Card Image"
+      />
+      <Card
+        title="Card Title 1"
+        description="This is the description for Card 1."
+        link="#"
+        imgSrc="https://picsum.photos/200/150"
+        imgAlt="Card Image"
+      />
+      <Card
+        title="Card Title 1"
+        description="This is the description for Card 1."
+        link="#"
+        imgSrc="https://picsum.photos/200/150"
+        imgAlt="Card Image"
+      />
+    </div>
+  );
 };
 
 export default Businesses;

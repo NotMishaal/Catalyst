@@ -1,6 +1,7 @@
 import NavBar from "./Nav";
 import HeaderSection from "./home/header";
 import PreviewSection from "./home/preview";
+import Businesses from "./home/business";
 
 function Home() {
   return (
@@ -17,12 +18,7 @@ function Home() {
           </div>
         </div>
         <PreviewSection />
-        <div className="row  min-vh-100 min-vw-100">
-          <h1 className="fw-bold display-1">Featured Businesses</h1>
-          <div className="row">
-            <div className="card"></div>
-          </div>
-        </div>
+        <Businesses />
       </div>
     </div>
   );

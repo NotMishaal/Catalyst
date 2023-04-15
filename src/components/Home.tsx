@@ -2,6 +2,7 @@ import NavBar from "./Nav";
 import HeaderSection from "./home/header";
 import PreviewSection from "./home/preview";
 import Businesses from "./home/business";
+import Footer from "./Footer";
 
 function Home() {
   return (
@@ -20,6 +21,7 @@ function Home() {
         <PreviewSection />
         <Businesses />
       </div>
+      <Footer />
     </div>
   );
 }

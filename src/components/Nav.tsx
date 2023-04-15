@@ -1,16 +1,17 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [user] = useAuthState(auth);
 
   return (
     <div className="container-fluid">
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand">
             <img src="public\catalyst.svg" alt="Bootstrap" height={69} />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,38 +25,38 @@ function NavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav mx-auto">
-              <a className="nav-link" aria-current="page" href="#">
+              <Link to="/" className="nav-link">
                 Investors
-              </a>
-              <a className="nav-link" href="#">
+              </Link>
+              <Link to="/" className="nav-link">
                 Businesses
-              </a>
-              <a className="nav-link" href="#">
+              </Link>
+              <Link to="/" className="nav-link">
                 Blog
-              </a>
-              <a className="nav-link" href="#">
+              </Link>
+              <Link to="/" className="nav-link">
                 Pricing
-              </a>
+              </Link>
             </div>
             <div className="navbar-nav">
               {user ? ( // user is logged in
                 <>
-                  <a className="nav-link" href="#">
+                  <Link to="/" className="nav-link">
                     {user.displayName}
-                  </a>
-                  <a className="btn btn-primary" href="#" role="button">
+                  </Link>
+                  <Link to="/" className="btn btn-primary" role="button">
                     Sign Out
-                  </a>
+                  </Link>
                 </>
               ) : (
                 // user isn't logged in
                 <>
-                  <a className="btn btn-secondary" href="#" role="button">
+                  <Link to="/" className="btn btn-secondary m-2" role="button">
                     Log In
-                  </a>
-                  <a className="btn btn-primary" href="#" role="button">
+                  </Link>
+                  <Link to="/" className="btn btn-primary m-2" role="button">
                     Sign Up
-                  </a>
+                  </Link>
                 </>
               )}
             </div>

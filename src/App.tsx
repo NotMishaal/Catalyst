@@ -4,15 +4,16 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Auth } from "./components/Auth";
 import NavBar from "./components/Nav";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <NavBar />
-      <h1>Hello World</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 

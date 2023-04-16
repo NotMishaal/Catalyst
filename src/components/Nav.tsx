@@ -51,10 +51,18 @@ function NavBar() {
               ) : (
                 // user isn't logged in
                 <>
-                  <Link to="/" className="btn btn-secondary m-2" role="button">
+                  <Link
+                    to="/login"
+                    className="btn btn-secondary m-2"
+                    role="button"
+                  >
                     Log In
                   </Link>
-                  <Link to="/" className="btn btn-primary m-2" role="button">
+                  <Link
+                    to="/signUp"
+                    className="btn btn-primary m-2"
+                    role="button"
+                  >
                     Sign Up
                   </Link>
                 </>

@@ -1,10 +1,36 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function SignUp() {
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const passwordConfirmRef = useRef<HTMLInputElement | null>(null);
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handlesSubmit(e: { preventDefault: () => void }) {
+    e.preventDefault();
+    const email = emailRef.current?.value;
+    const password = passwordRef.current?.value;
+    const passwordConfirm = passwordConfirmRef.current?.value;
+
+    if (password !== passwordConfirm) {
+      return setError("Passwords do not match");
+    }
+
+    if (email && password) {
+      try {
+        setError("");
+        setLoading(true);
+        await signup(email, password);
+      } catch {
+        setError("Failed to create an account");
+      }
+      setLoading(false);
+    }
+  }
 
   return (
     <div
@@ -14,7 +40,12 @@ export default function SignUp() {
       <div className="card w-100" style={{ maxWidth: "500px" }}>
         <div className="card-body">
           <h2 className="text-center mb-4">Sign Up</h2>
-          <form>
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}
+            </div>
+          )}
+          <form onSubmit={handlesSubmit}>
             <div className="form-floating mb-3" id="email">
               <input
                 type="email"
@@ -48,7 +79,11 @@ export default function SignUp() {
               />
               <label htmlFor="floatingPasswordConfirm">Confrim Password</label>
             </div>
-            <button className="w-100 btn btn-primary" type="submit">
+            <button
+              disabled={loading}
+              className="w-100 btn btn-primary"
+              type="submit"
+            >
               Sign Up
             </button>
           </form>

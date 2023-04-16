@@ -1,9 +1,22 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "./context/AuthContext";
 
-function NavBar() {
+export default function NavBar() {
   const [user] = useAuthState(auth);
+  const [error, setError] = useState("");
+  const { logout } = useAuth();
+
+  async function handleLogout() {
+    setError("");
+    try {
+      await logout();
+    } catch {
+      setError("Failed to logout");
+    }
+  }
 
   return (
     <div className="container-fluid">
@@ -42,11 +55,11 @@ function NavBar() {
               {user ? ( // user is logged in
                 <>
                   <Link to="/" className="nav-link">
-                    {user.displayName}
+                    Account
                   </Link>
-                  <Link to="/" className="btn btn-primary" role="button">
+                  <button className="btn btn-primary" onClick={handleLogout}>
                     Sign Out
-                  </Link>
+                  </button>
                 </>
               ) : (
                 // user isn't logged in
@@ -74,5 +87,3 @@ function NavBar() {
     </div>
   );
 }
-
-export default NavBar;

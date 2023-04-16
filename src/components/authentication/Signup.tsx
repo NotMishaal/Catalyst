@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function SignUp() {
@@ -9,6 +9,7 @@ export default function SignUp() {
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   async function handlesSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
@@ -25,6 +26,7 @@ export default function SignUp() {
         setError("");
         setLoading(true);
         await signup(email, password);
+        navigate("/");
       } catch {
         setError("Failed to create an account");
       }
@@ -89,8 +91,9 @@ export default function SignUp() {
           </form>
         </div>
         <div className="w-100 text-center m-2">
-          <Link to="/login" className="nav-link">
-            Already Have an Account? Log In
+          Already Have an Account?
+          <Link to="/login" className="nav-link" style={{ display: "inline" }}>
+            Log In
           </Link>
         </div>
       </div>

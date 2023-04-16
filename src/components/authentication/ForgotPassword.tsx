@@ -1,28 +1,27 @@
 import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-export default function Login() {
+export default function ForgotPassword() {
   const emailRef = useRef<HTMLInputElement | null>(null);
-  const passwordRef = useRef<HTMLInputElement | null>(null);
-  const { login } = useAuth();
+  const { resetPassword } = useAuth();
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   async function handlesSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
     const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
 
-    if (email && password) {
+    if (email) {
       try {
         setError("");
+        setMessage("");
         setLoading(true);
-        await login(email, password);
-        navigate("/");
+        await resetPassword(email);
+        setMessage("Check your email for further instructions.");
       } catch {
-        setError("Failed to sign in");
+        setError("Failed to reset password");
       }
       setLoading(false);
     }
@@ -35,10 +34,15 @@ export default function Login() {
     >
       <div className="card w-100" style={{ maxWidth: "500px" }}>
         <div className="card-body">
-          <h2 className="text-center mb-4">Log In</h2>
+          <h2 className="text-center mb-4">Password Reset</h2>
           {error && (
             <div className="alert alert-danger" role="alert">
               {error}
+            </div>
+          )}
+          {message && (
+            <div className="alert alert-success" role="alert">
+              {message}
             </div>
           )}
           <form onSubmit={handlesSubmit}>
@@ -53,27 +57,16 @@ export default function Login() {
               />
               <label htmlFor="floatingInput">Email</label>
             </div>
-            <div className="form-floating mb-3" id="password">
-              <input
-                type="password"
-                ref={passwordRef}
-                required
-                className="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-              />
-              <label htmlFor="floatingPassword">Password</label>
-            </div>
             <button
               disabled={loading}
               className="w-100 btn btn-primary"
               type="submit"
             >
-              Login
+              Reset Password
             </button>
           </form>
           <div className="text-end m-2">
-            <Link to="/forgot-password">Forgot Password?</Link>
+            <Link to="/login">Login</Link>
           </div>
         </div>
         <div className="w-100 text-center m-2">
